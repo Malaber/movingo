@@ -7,5 +7,5 @@ do
     then
         mv --verbose --backup=numbered /from/* --target-directory=/to/
     fi
-    sleep 5m;
+    sleep 1m;
 done
