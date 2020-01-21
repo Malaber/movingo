@@ -1,0 +1,25 @@
+name: Docker Image
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Docker Image Publish
+      uses: manusa/actions-publish-docker@v1.0.1
+      with:
+        # Name of the Docker image
+        name: docker.pkg.github.com/malaber/movingo/movingo
+        # Tag for the Docker image
+        tag: latest
+        # Username for Docker registry
+        username: Malaber
+        # Password for Docker registry
+        password: ${{ secrets.GITHUB_PACKAGES_ACCESS_TOKEN }}
+        # Registry URL
+        registry: docker.pkg.github.com
